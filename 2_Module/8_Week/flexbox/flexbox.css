@@ -1,0 +1,32 @@
+Flex Box Crash Course:
+
+- flex containers: 
+  - definition: the element that holds flex items
+  - flex items: are direct children of flex containers
+  - created with: display:flex
+
+- flex container properties: 
+  * flex-direction
+  * flex-wrap
+  * flex-flow
+  * justify-content
+  * align-items
+  * align-content
+
+
+- flex item properties: 
+  * order
+  * flex-grow
+  * flex-shrink
+  * flex-bases
+  * align-self
+
+
+Remember that your axis changed depending on your flex-direction!
+
+  if flex-direction: row  
+  (then the main axis is horizontal and the cross axis is verticle)
+
+  if flex-direction: column
+  (then the main axis is verticle and the cross axis is horizontal)
+

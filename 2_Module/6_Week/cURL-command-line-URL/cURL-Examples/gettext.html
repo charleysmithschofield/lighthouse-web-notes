@@ -1,0 +1,314 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>GNU gettext utilities</title>
+
+<meta name="description" content="GNU gettext utilities">
+<meta name="keywords" content="GNU gettext utilities">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="#Top" rel="start" title="Top">
+<link href="#Program-Index" rel="index" title="Program Index">
+<link href="#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="/manual" rel="up" title="(dir)">
+<link href="#Introduction" rel="next" title="Introduction">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://www.gnu.org/software/gnulib/manual.css">
+
+
+</head>
+
+<body lang="en">
+<h1 class="settitle" align="center">GNU <code>gettext</code> utilities</h1>
+
+
+
+
+
+
+<div class="top" id="Top">
+<div class="header">
+<p>
+Next: <a href="#Introduction" accesskey="n" rel="next">Introduction</a>, Up: <a href="/manual" accesskey="u" rel="up">(dir)</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Program-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="GNU-gettext-utilities"></span><h1 class="top">GNU <code>gettext</code> utilities</h1>
+
+<p>This manual documents the GNU gettext tools and the GNU libintl library,
+version 0.22.
+</p>
+
+
+<div class="Contents_element" id="SEC_Contents">
+<h2 class="contents-heading">Table of Contents</h2>
+
+<div class="contents">
+
+<ul class="no-bullet">
+  <li><a id="toc-Introduction-1" href="#Introduction">1 Introduction</a>
+  <ul class="no-bullet">
+    <li><a id="toc-The-Purpose-of-GNU-gettext" href="#Why">1.1 The Purpose of GNU <code>gettext</code></a></li>
+    <li><a id="toc-I18n_002c-L10n_002c-and-Such" href="#Concepts">1.2 I18n, L10n, and Such</a></li>
+    <li><a id="toc-Aspects-in-Native-Language-Support" href="#Aspects">1.3 Aspects in Native Language Support</a></li>
+    <li><a id="toc-Files-Conveying-Translations" href="#Files">1.4 Files Conveying Translations</a></li>
+    <li><a id="toc-Overview-of-GNU-gettext" href="#Overview">1.5 Overview of GNU <code>gettext</code></a></li>
+  </ul></li>
+  <li><a id="toc-The-User_0027s-View" href="#Users">2 The User&rsquo;s View</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Operating-System-Installation" href="#System-Installation">2.1 Operating System Installation</a></li>
+    <li><a id="toc-Setting-the-Locale-Used-by-GUI-Programs" href="#Setting-the-GUI-Locale">2.2 Setting the Locale Used by GUI Programs</a></li>
+    <li><a id="toc-Setting-the-Locale-through-Environment-Variables" href="#Setting-the-POSIX-Locale">2.3 Setting the Locale through Environment Variables</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Locale-Names-1" href="#Locale-Names">2.3.1 Locale Names</a></li>
+      <li><a id="toc-Locale-Environment-Variables-1" href="#Locale-Environment-Variables">2.3.2 Locale Environment Variables</a></li>
+      <li><a id="toc-Specifying-a-Priority-List-of-Languages" href="#The-LANGUAGE-variable">2.3.3 Specifying a Priority List of Languages</a></li>
+    </ul></li>
+    <li><a id="toc-Obtaining-good-output-in-a-Windows-console" href="#Working-in-a-Windows-console">2.4 Obtaining good output in a Windows console</a></li>
+    <li><a id="toc-Installing-Translations-for-Particular-Programs" href="#Installing-Localizations">2.5 Installing Translations for Particular Programs</a></li>
+  </ul></li>
+  <li><a id="toc-The-Format-of-PO-Files" href="#PO-Files">3 The Format of PO Files</a></li>
+  <li><a id="toc-Preparing-Program-Sources" href="#Sources">4 Preparing Program Sources</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Importing-the-gettext-declaration" href="#Importing">4.1 Importing the <code>gettext</code> declaration</a></li>
+    <li><a id="toc-Triggering-gettext-Operations" href="#Triggering">4.2 Triggering <code>gettext</code> Operations</a></li>
+    <li><a id="toc-Preparing-Translatable-Strings" href="#Preparing-Strings">4.3 Preparing Translatable Strings</a></li>
+    <li><a id="toc-How-Marks-Appear-in-Sources" href="#Mark-Keywords">4.4 How Marks Appear in Sources</a></li>
+    <li><a id="toc-Marking-Translatable-Strings" href="#Marking">4.5 Marking Translatable Strings</a></li>
+    <li><a id="toc-Special-Comments-preceding-Keywords" href="#c_002dformat-Flag">4.6 Special Comments preceding Keywords</a></li>
+    <li><a id="toc-Special-Cases-of-Translatable-Strings" href="#Special-cases">4.7 Special Cases of Translatable Strings</a></li>
+    <li><a id="toc-Letting-Users-Report-Translation-Bugs" href="#Bug-Report-Address">4.8 Letting Users Report Translation Bugs</a></li>
+    <li><a id="toc-Marking-Proper-Names-for-Translation" href="#Names">4.9 Marking Proper Names for Translation</a></li>
+    <li><a id="toc-Preparing-Library-Sources" href="#Libraries">4.10 Preparing Library Sources</a></li>
+  </ul></li>
+  <li><a id="toc-Making-the-PO-Template-File" href="#Template">5 Making the PO Template File</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Invoking-the-xgettext-Program" href="#xgettext-Invocation">5.1 Invoking the <code>xgettext</code> Program</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Input-file-location" href="#Input-file-location">5.1.1 Input file location</a></li>
+      <li><a id="toc-Output-file-location" href="#Output-file-location">5.1.2 Output file location</a></li>
+      <li><a id="toc-Choice-of-input-file-language" href="#Choice-of-input-file-language">5.1.3 Choice of input file language</a></li>
+      <li><a id="toc-Input-file-interpretation" href="#Input-file-interpretation">5.1.4 Input file interpretation</a></li>
+      <li><a id="toc-Operation-mode" href="#Operation-mode">5.1.5 Operation mode</a></li>
+      <li><a id="toc-Language-specific-options" href="#Language-specific-options">5.1.6 Language specific options</a></li>
+      <li><a id="toc-Output-details" href="#Output-details">5.1.7 Output details</a></li>
+      <li><a id="toc-Informative-output" href="#Informative-output">5.1.8 Informative output</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a id="toc-Creating-a-New-PO-File" href="#Creating">6 Creating a New PO File</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Invoking-the-msginit-Program" href="#msginit-Invocation">6.1 Invoking the <code>msginit</code> Program</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Input-file-location-1" href="#Input-file-location-1">6.1.1 Input file location</a></li>
+      <li><a id="toc-Output-file-location-1" href="#Output-file-location-1">6.1.2 Output file location</a></li>
+      <li><a id="toc-Input-file-syntax" href="#Input-file-syntax">6.1.3 Input file syntax</a></li>
+      <li><a id="toc-Output-details-1" href="#Output-details-1">6.1.4 Output details</a></li>
+      <li><a id="toc-Informative-output-1" href="#Informative-output-1">6.1.5 Informative output</a></li>
+    </ul></li>
+    <li><a id="toc-Filling-in-the-Header-Entry" href="#Header-Entry">6.2 Filling in the Header Entry</a></li>
+  </ul></li>
+  <li><a id="toc-Updating-Existing-PO-Files" href="#Updating">7 Updating Existing PO Files</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Invoking-the-msgmerge-Program" href="#msgmerge-Invocation">7.1 Invoking the <code>msgmerge</code> Program</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Input-file-location-2" href="#Input-file-location-2">7.1.1 Input file location</a></li>
+      <li><a id="toc-Operation-mode-1" href="#Operation-mode-1">7.1.2 Operation mode</a></li>
+      <li><a id="toc-Output-file-location-2" href="#Output-file-location-2">7.1.3 Output file location</a></li>
+      <li><a id="toc-Output-file-location-in-update-mode" href="#Output-file-location-in-update-mode">7.1.4 Output file location in update mode</a></li>
+      <li><a id="toc-Operation-modifiers" href="#Operation-modifiers">7.1.5 Operation modifiers</a></li>
+      <li><a id="toc-Input-file-syntax-1" href="#Input-file-syntax-1">7.1.6 Input file syntax</a></li>
+      <li><a id="toc-Output-details-2" href="#Output-details-2">7.1.7 Output details</a></li>
+      <li><a id="toc-Informative-output-2" href="#Informative-output-2">7.1.8 Informative output</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a id="toc-Editing-PO-Files" href="#Editing">8 Editing PO Files</a>
+  <ul class="no-bullet">
+    <li><a id="toc-KDE_0027s-PO-File-Editor" href="#KBabel">8.1 KDE&rsquo;s PO File Editor</a></li>
+    <li><a id="toc-GNOME_0027s-PO-File-Editor" href="#Gtranslator">8.2 GNOME&rsquo;s PO File Editor</a></li>
+    <li><a id="toc-Emacs_0027s-PO-File-Editor" href="#PO-Mode">8.3 Emacs&rsquo;s PO File Editor</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Completing-GNU-gettext-Installation" href="#Installation">8.3.1 Completing GNU <code>gettext</code> Installation</a></li>
+      <li><a id="toc-Main-PO-mode-Commands" href="#Main-PO-Commands">8.3.2 Main PO mode Commands</a></li>
+      <li><a id="toc-Entry-Positioning-1" href="#Entry-Positioning">8.3.3 Entry Positioning</a></li>
+      <li><a id="toc-Normalizing-Strings-in-Entries" href="#Normalizing">8.3.4 Normalizing Strings in Entries</a></li>
+      <li><a id="toc-Translated-Entries-1" href="#Translated-Entries">8.3.5 Translated Entries</a></li>
+      <li><a id="toc-Fuzzy-Entries-1" href="#Fuzzy-Entries">8.3.6 Fuzzy Entries</a></li>
+      <li><a id="toc-Untranslated-Entries-1" href="#Untranslated-Entries">8.3.7 Untranslated Entries</a></li>
+      <li><a id="toc-Obsolete-Entries-1" href="#Obsolete-Entries">8.3.8 Obsolete Entries</a></li>
+      <li><a id="toc-Modifying-Translations-1" href="#Modifying-Translations">8.3.9 Modifying Translations</a></li>
+      <li><a id="toc-Modifying-Comments-1" href="#Modifying-Comments">8.3.10 Modifying Comments</a></li>
+      <li><a id="toc-Details-of-Sub-Edition" href="#Subedit">8.3.11 Details of Sub Edition</a></li>
+      <li><a id="toc-C-Sources-Context-1" href="#C-Sources-Context">8.3.12 C Sources Context</a></li>
+      <li><a id="toc-Consulting-Auxiliary-PO-Files" href="#Auxiliary">8.3.13 Consulting Auxiliary PO Files</a></li>
+    </ul></li>
+    <li><a id="toc-Using-Translation-Compendia" href="#Compendium">8.4 Using Translation Compendia</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Creating-Compendia-1" href="#Creating-Compendia">8.4.1 Creating Compendia</a>
+      <ul class="no-bullet">
+        <li><a id="toc-Concatenate-PO-Files" href="#Concatenate-PO-Files">8.4.1.1 Concatenate PO Files</a></li>
+        <li><a id="toc-Extract-a-Message-Subset-from-a-PO-File" href="#Extract-a-Message-Subset-from-a-PO-File">8.4.1.2 Extract a Message Subset from a PO File</a></li>
+      </ul></li>
+      <li><a id="toc-Using-Compendia-1" href="#Using-Compendia">8.4.2 Using Compendia</a>
+      <ul class="no-bullet">
+        <li><a id="toc-Initialize-a-New-Translation-File" href="#Initialize-a-New-Translation-File">8.4.2.1 Initialize a New Translation File</a></li>
+        <li><a id="toc-Update-an-Existing-Translation-File" href="#Update-an-Existing-Translation-File">8.4.2.2 Update an Existing Translation File</a></li>
+      </ul></li>
+    </ul></li>
+  </ul></li>
+  <li><a id="toc-Manipulating-PO-Files" href="#Manipulating">9 Manipulating PO Files</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Invoking-the-msgcat-Program" href="#msgcat-Invocation">9.1 Invoking the <code>msgcat</code> Program</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Input-file-location-3" href="#Input-file-location-3">9.1.1 Input file location</a></li>
+      <li><a id="toc-Output-file-location-3" href="#Output-file-location-3">9.1.2 Output file location</a></li>
+      <li><a id="toc-Message-selection" href="#Message-selection">9.1.3 Message selection</a></li>
+      <li><a id="toc-Input-file-syntax-2" href="#Input-file-syntax-2">9.1.4 Input file syntax</a></li>
+      <li><a id="toc-Output-details-3" href="#Output-details-3">9.1.5 Output details</a></li>
+      <li><a id="toc-Informative-output-3" href="#Informative-output-3">9.1.6 Informative output</a></li>
+    </ul></li>
+    <li><a id="toc-Invoking-the-msgconv-Program" href="#msgconv-Invocation">9.2 Invoking the <code>msgconv</code> Program</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Input-file-location-4" href="#Input-file-location-4">9.2.1 Input file location</a></li>
+      <li><a id="toc-Output-file-location-4" href="#Output-file-location-4">9.2.2 Output file location</a></li>
+      <li><a id="toc-Conversion-target" href="#Conversion-target">9.2.3 Conversion target</a></li>
+      <li><a id="toc-Input-file-syntax-3" href="#Input-file-syntax-3">9.2.4 Input file syntax</a></li>
+      <li><a id="toc-Output-details-4" href="#Output-details-4">9.2.5 Output details</a></li>
+      <li><a id="toc-Informative-output-4" href="#Informative-output-4">9.2.6 Informative output</a></li>
+    </ul></li>
+    <li><a id="toc-Invoking-the-msggrep-Program" href="#msggrep-Invocation">9.3 Invoking the <code>msggrep</code> Program</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Input-file-location-5" href="#Input-file-location-5">9.3.1 Input file location</a></li>
+      <li><a id="toc-Output-file-location-5" href="#Output-file-location-5">9.3.2 Output file location</a></li>
+      <li><a id="toc-Message-selection-1" href="#Message-selection-1">9.3.3 Message selection</a></li>
+      <li><a id="toc-Input-file-syntax-4" href="#Input-file-syntax-4">9.3.4 Input file syntax</a></li>
+      <li><a id="toc-Output-details-5" href="#Output-details-5">9.3.5 Output details</a></li>
+      <li><a id="toc-Informative-output-5" href="#Informative-output-5">9.3.6 Informative output</a></li>
+      <li><a id="toc-Examples" href="#Examples">9.3.7 Examples</a></li>
+    </ul></li>
+    <li><a id="toc-Invoking-the-msgfilter-Program" href="#msgfilter-Invocation">9.4 Invoking the <code>msgfilter</code> Program</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Input-file-location-6" href="#Input-file-location-6">9.4.1 Input file location</a></li>
+      <li><a id="toc-Output-file-location-6" href="#Output-file-location-6">9.4.2 Output file location</a></li>
+      <li><a id="toc-The-filter" href="#The-filter">9.4.3 The filter</a></li>
+      <li><a id="toc-Useful-filter_002doptions-when-the-filter-is-sed" href="#Useful-filter_002doptions-when-the-filter-is-sed">9.4.4 Useful <var>filter-option</var>s when the <var>filter</var> is &lsquo;<samp>sed</samp>&rsquo;</a></li>
+      <li><a id="toc-Built_002din-filters" href="#Built_002din-filters">9.4.5 Built-in <var>filter</var>s</a></li>
+      <li><a id="toc-Input-file-syntax-5" href="#Input-file-syntax-5">9.4.6 Input file syntax</a></li>
+      <li><a id="toc-Output-details-6" href="#Output-details-6">9.4.7 Output details</a></li>
+      <li><a id="toc-Informative-output-6" href="#Informative-output-6">9.4.8 Informative output</a></li>
+      <li><a id="toc-Examples-1" href="#Examples-1">9.4.9 Examples</a></li>
+    </ul></li>
+    <li><a id="toc-Invoking-the-msguniq-Program" href="#msguniq-Invocation">9.5 Invoking the <code>msguniq</code> Program</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Input-file-location-7" href="#Input-file-location-7">9.5.1 Input file location</a></li>
+      <li><a id="toc-Output-file-location-7" href="#Output-file-location-7">9.5.2 Output file location</a></li>
+      <li><a id="toc-Message-selection-2" href="#Message-selection-2">9.5.3 Message selection</a></li>
+      <li><a id="toc-Input-file-syntax-6" href="#Input-file-syntax-6">9.5.4 Input file syntax</a></li>
+      <li><a id="toc-Output-details-7" href="#Output-details-7">9.5.5 Output details</a></li>
+      <li><a id="toc-Informative-output-7" href="#Informative-output-7">9.5.6 Informative output</a></li>
+    </ul></li>
+    <li><a id="toc-Invoking-the-msgcomm-Program" href="#msgcomm-Invocation">9.6 Invoking the <code>msgcomm</code> Program</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Input-file-location-8" href="#Input-file-location-8">9.6.1 Input file location</a></li>
+      <li><a id="toc-Output-file-location-8" href="#Output-file-location-8">9.6.2 Output file location</a></li>
+      <li><a id="toc-Message-selection-3" href="#Message-selection-3">9.6.3 Message selection</a></li>
+      <li><a id="toc-Input-file-syntax-7" href="#Input-file-syntax-7">9.6.4 Input file syntax</a></li>
+      <li><a id="toc-Output-details-8" href="#Output-details-8">9.6.5 Output details</a></li>
+      <li><a id="toc-Informative-output-8" href="#Informative-output-8">9.6.6 Informative output</a></li>
+    </ul></li>
+    <li><a id="toc-Invoking-the-msgcmp-Program" href="#msgcmp-Invocation">9.7 Invoking the <code>msgcmp</code> Program</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Input-file-location-9" href="#Input-file-location-9">9.7.1 Input file location</a></li>
+      <li><a id="toc-Operation-modifiers-1" href="#Operation-modifiers-1">9.7.2 Operation modifiers</a></li>
+      <li><a id="toc-Input-file-syntax-8" href="#Input-file-syntax-8">9.7.3 Input file syntax</a></li>
+      <li><a id="toc-Informative-output-9" href="#Informative-output-9">9.7.4 Informative output</a></li>
+    </ul></li>
+    <li><a id="toc-Invoking-the-msgattrib-Program" href="#msgattrib-Invocation">9.8 Invoking the <code>msgattrib</code> Program</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Input-file-location-10" href="#Input-file-location-10">9.8.1 Input file location</a></li>
+      <li><a id="toc-Output-file-location-9" href="#Output-file-location-9">9.8.2 Output file location</a></li>
+      <li><a id="toc-Message-selection-4" href="#Message-selection-4">9.8.3 Message selection</a></li>
+      <li><a id="toc-Attribute-manipulation" href="#Attribute-manipulation">9.8.4 Attribute manipulation</a></li>
+      <li><a id="toc-Input-file-syntax-9" href="#Input-file-syntax-9">9.8.5 Input file syntax</a></li>
+      <li><a id="toc-Output-details-9" href="#Output-details-9">9.8.6 Output details</a></li>
+      <li><a id="toc-Informative-output-10" href="#Informative-output-10">9.8.7 Informative output</a></li>
+    </ul></li>
+    <li><a id="toc-Invoking-the-msgen-Program" href="#msgen-Invocation">9.9 Invoking the <code>msgen</code> Program</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Input-file-location-11" href="#Input-file-location-11">9.9.1 Input file location</a></li>
+      <li><a id="toc-Output-file-location-10" href="#Output-file-location-10">9.9.2 Output file location</a></li>
+      <li><a id="toc-Input-file-syntax-10" href="#Input-file-syntax-10">9.9.3 Input file syntax</a></li>
+      <li><a id="toc-Output-details-10" href="#Output-details-10">9.9.4 Output details</a></li>
+      <li><a id="toc-Informative-output-11" href="#Informative-output-11">9.9.5 Informative output</a></li>
+    </ul></li>
+    <li><a id="toc-Invoking-the-msgexec-Program" href="#msgexec-Invocation">9.10 Invoking the <code>msgexec</code> Program</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Input-file-location-12" href="#Input-file-location-12">9.10.1 Input file location</a></li>
+      <li><a id="toc-Input-file-syntax-11" href="#Input-file-syntax-11">9.10.2 Input file syntax</a></li>
+      <li><a id="toc-Informative-output-12" href="#Informative-output-12">9.10.3 Informative output</a></li>
+    </ul></li>
+    <li><a id="toc-Highlighting-parts-of-PO-files" href="#Colorizing">9.11 Highlighting parts of PO files</a>
+    <ul class="no-bullet">
+      <li><a id="toc-The-_002d_002dcolor-option-1" href="#The-_002d_002dcolor-option">9.11.1 The <code>--color</code> option</a></li>
+      <li><a id="toc-The-environment-variable-TERM" href="#The-TERM-variable">9.11.2 The environment variable <code>TERM</code></a></li>
+      <li><a id="toc-The-_002d_002dstyle-option-1" href="#The-_002d_002dstyle-option">9.11.3 The <code>--style</code> option</a></li>
+      <li><a id="toc-Style-rules-for-PO-files" href="#Style-rules">9.11.4 Style rules for PO files</a></li>
+      <li><a id="toc-Customizing-less-for-viewing-PO-files" href="#Customizing-less">9.11.5 Customizing <code>less</code> for viewing PO files</a></li>
+    </ul></li>
+    <li><a id="toc-Other-tools-for-manipulating-PO-files" href="#Other-tools">9.12 Other tools for manipulating PO files</a></li>
+    <li><a id="toc-Writing-your-own-programs-that-process-PO-files" href="#libgettextpo">9.13 Writing your own programs that process PO files</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Error-Handling-1" href="#Error-Handling">9.13.1 Error Handling</a></li>
+      <li><a id="toc-po_005ffile_005ft-API-1" href="#po_005ffile_005ft-API">9.13.2 po_file_t API</a></li>
+      <li><a id="toc-po_005fmessage_005fiterator_005ft-API-1" href="#po_005fmessage_005fiterator_005ft-API">9.13.3 po_message_iterator_t API</a></li>
+      <li><a id="toc-po_005fmessage_005ft-API-1" href="#po_005fmessage_005ft-API">9.13.4 po_message_t API</a></li>
+      <li><a id="toc-PO-Header-Entry-API-1" href="#PO-Header-Entry-API">9.13.5 PO Header Entry API</a></li>
+      <li><a id="toc-po_005ffilepos_005ft-API-1" href="#po_005ffilepos_005ft-API">9.13.6 po_filepos_t API</a></li>
+      <li><a id="toc-Format-Type-API-1" href="#Format-Type-API">9.13.7 Format Type API</a></li>
+      <li><a id="toc-Checking-API-1" href="#Checking-API">9.13.8 Checking API</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a id="toc-Producing-Binary-MO-Files" href="#Binaries">10 Producing Binary MO Files</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Invoking-the-msgfmt-Program" href="#msgfmt-Invocation">10.1 Invoking the <code>msgfmt</code> Program</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Input-file-location-13" href="#Input-file-location-13">10.1.1 Input file location</a></li>
+      <li><a id="toc-Operation-mode-2" href="#Operation-mode-2">10.1.2 Operation mode</a></li>
+      <li><a id="toc-Output-file-location-11" href="#Output-file-location-11">10.1.3 Output file location</a></li>
+      <li><a id="toc-Output-file-location-in-Java-mode" href="#Output-file-location-in-Java-mode">10.1.4 Output file location in Java mode</a></li>
+      <li><a id="toc-Output-file-location-in-C_0023-mode" href="#Output-file-location-in-C_0023-mode">10.1.5 Output file location in C# mode</a></li>
+      <li><a id="toc-Output-file-location-in-Tcl-mode" href="#Output-file-location-in-Tcl-mode">10.1.6 Output file location in Tcl mode</a></li>
+      <li><a id="toc-Desktop-Entry-mode-operations" href="#Desktop-Entry-mode-operations">10.1.7 Desktop Entry mode operations</a></li>
+      <li><a id="toc-XML-mode-operations" href="#XML-mode-operations">10.1.8 XML mode operations</a></li>
+      <li><a id="toc-Input-file-syntax-12" href="#Input-file-syntax-12">10.1.9 Input file syntax</a></li>
+      <li><a id="toc-Input-file-interpretation-1" href="#Input-file-interpretation-1">10.1.10 Input file interpretation</a></li>
+      <li><a id="toc-Output-details-11" href="#Output-details-11">10.1.11 Output details</a></li>
+      <li><a id="toc-Informative-output-13" href="#Informative-output-13">10.1.12 Informative output</a></li>
+    </ul></li>
+    <li><a id="toc-Invoking-the-msgunfmt-Program" href="#msgunfmt-Invocation">10.2 Invoking the <code>msgunfmt</code> Program</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Operation-mode-3" href="#Operation-mode-3">10.2.1 Operation mode</a></li>
+      <li><a id="toc-Input-file-location-14" href="#Input-file-location-14">10.2.2 Input file location</a></li>
+      <li><a id="toc-Input-file-location-in-Java-mode" href="#Input-file-location-in-Java-mode">10.2.3 Input file location in Java mode</a></li>
+      <li><a id="toc-Input-file-location-in-C_0023-mode" href="#Input-file-location-in-C_0023-mode">10.2.4 Input file location in C# mode</a></li>
+      <li><a id="toc-Input-file-location-in-Tcl-mode" href="#Input-file-location-in-Tcl-mode">10.2.5

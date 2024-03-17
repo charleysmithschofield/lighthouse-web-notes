@@ -1,0 +1,116 @@
+# Flexbox - Reading
+
+CSS is used to apply style to HTML pages. This includes changing fonts and colors, but it also allows us to change the layout of our page. There are many ways to position and display items wiht CSS, and each method is appropriate for different use cases.
+
+For Tweeter, we will use Flexbox, which is introduced in this reading.
+
+In the future you may be interested in checkign out CSS Grid Layout (https://css-tricks.com/snippets/css/complete-guide-grid/)
+
+_______________________________________________________________________________________________________________________________________________________________________________________
+## Display
+We know our browser applies default styles to our HTML elements. One of these default styles is display.
+
+display: block
+
+A block level element will take up the entire space of its parent element. It can contain other block elements or inline elements.
+
+A great example of a block element is a paragraph.
+
+<p>
+  I'm a block level element.
+</p>
+
+The paragraph element will stretch all the way across its parent.
+
+## Other block elements include:
+
+  - headings (<h1>,<h2>,<h3>,<h4>,<h5>,<h6>)
+  - div (<div></div>)
+  - section (<section></section>)
+  - footer (<footer></footer>)
+  - article (<article></article>)
+  - paragraph (<p></p>)
+  - lists (<ul></ul>, <ol></ol>)
+  - nav (<nav></nav>)
+
+_______________________________________________________________________________________________________________________________________________________________________________________
+## display: inline
+
+Inline elements do not start a new line when they are renedered in the browser.
+They only take up as much space as the content needs. A span tag is an example
+of an inline element:
+
+<span>
+  I'm an inline element.
+</span>
+
+Inline elements contain only data and other inline elements. Unlike block elements
+we cannot add a width, height, padding or margin to inline elements. They simply
+take up as much room as they need to display their content.
+
+No more, no less:
+
+Other inline elements include:
+
+  - anchor (<a> </a>)
+  - em (<em></em>)
+  - strong (<strong></strong>)
+  - span (<span></span>)
+
+Image tags (<img>) and buttons (<button></button>) are the only two HTML tags who
+hae a default in-line display property
+
+
+_____________________________________________________________________________________________________________________________________________________________________________________
+## display: Flexbox
+
+Flexbox (aka CSS Flexible Box) is a layout module in CSS. It allows us to specify
+how elements on our page should appear. It is great for layouts that need to adapt
+to different screen sizes and display devices.
+
+HTML
+<section class="parent">
+  <div class="a">A</div>
+  <div class="b">B</div>
+  <div class="c">C</div>
+  <div class="d">D</div>
+</section>
+
+To start using Flexbox, we add the display: flex property to the parent element
+css
+.parent {
+  display: flex;
+}
+
+_____________________________________________________________________________________________________________________________________________________________________________________
+
+Parent Properties:
+
+These are a list of properties we can apply to the parent element when we're using
+Flexbox. The parent element is also sometimes referred to as the container element.
+
+flex-direction
+Defines the direction that the children (also know as flex items) will appear in. We can set these to columns or rows, and dictate if the child elements should be displayed in reverse order. The flex direction also determines the main axis for the flex container. If we set to a row (the default), the main axis is horizontal; if we set the flex direction to use columns, it will be vertical.
+
+.parent {
+  display: flex;
+  flex-direction: row;
+}
+
+(would display 4 boxes: D, C, B, A from the right side of the box)
+
+
+.parent {
+  display: flex;
+  flex-direction: column;
+}
+
+(would display A, B, C, D in a vertical column on the left side of the box)
+
+
+Some other parent properties include:
+
+justify-content, determines where the flex items are along the main axis.
+align-items, determines how flex items are laid out on the cross axis.
+Child Properties
+Some of the child properties include: - order, which controls the order elements appear in without changing your HTML (its default value is 0) - flex-grow, dictates how much space a flex item should take up.

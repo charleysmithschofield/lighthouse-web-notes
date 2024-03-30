@@ -1,0 +1,70 @@
+/* Choosing Breakpoints */
+
+/* Disabling Viewport Zooming
+We’ve got one final task for making a responsive web page. Before responsive design was a thing, mobile devices only had a desktop layout to work with. To cope with this, they zoomed out to fit the entire desktop layout into the width of the screen, letting the user interact with it by zooming in when necessary.
+
+This default behavior will prevent mobile devices from using our mobile layout, which is obviously very terrible.
+
+Instruction
+Disable viewport zooming by adding the following element to the <head> your document
+
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+Warning
+This is a critical element that should be on every single web page you create.
+*/
+
+/* Following our designs, we will be using two breakpoints:
+
+  - The tablet layout at minimum 768px
+  - The desktop layout at minimum 1024px
+
+Imagine if we require breakpoints for every device with a
+slighly different screen sized out there; not only would
+design and implementation be onerous, maintenance would
+also be impossible with any new device releases.
+
+Ideally you want to choose your breakpoints around your 
+content and design, not around devices.
+
+Some Common Breakpoints Are:
+*/
+
+/* Smartphones: minimum width of 320px to maximum width of
+around 420px */
+
+@media only screen and (mid-width: 320px) and (max-width: 420px) {
+  /* Write smartphone only styles here */
+}
+
+/* Another smartphone breakpoint is maximum width of around 420p */
+@media only screen and (max-width: 420px) {
+  /* Write smartphone only styles here */
+}
+
+/* Tablet: minimum width of 768px to maximum width of 1024px */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  /* Write Tablet only CSS here */
+}
+
+/* Another tablet breakpoint is maximum width of 1024px */
+@media only screen and (max-width: 1024px) {
+  /* Write CSS rules that target Tablets screen sizes downwards - incl smartphones */
+}
+
+/* Another tablet breakpoint is minimum width of 768px */
+@media only screen and (min-width: 768px) {
+  /* Write CSS rules that target Tablets screen sizes upward - incl desktops */
+}
+
+/* Laptops / Desktops: minimum width of 1024px */
+@media only screen and (mid-width: 1024px) {
+  /*Write CSS rules that target Laptop/Desktop screen sizes and beyond */
+}
+
+/* Laptops / Desktops: minimum width of 960px */
+@media only screen and (min-width: 960px) {
+  /* Write CSS rules that target small laptop screen sizes and beyond */
+}
+
+
+

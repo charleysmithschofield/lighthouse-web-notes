@@ -1,0 +1,54 @@
+/* Layering Media Queries */
+
+
+/*
+  OVERLAPPING QUERIES:
+
+  * Thing to note: The order of your media queries matter!
+  Make sure if you want a trait to "carry-over" it must be set prior to your new query
+*/
+
+@media (min-width: 300px) {
+  div {
+      color: red;
+      border: 2px;
+  }
+}
+@media (min-width: 600px) {
+  div {
+    /*color: red; - Picked up from the 300px query */
+    /*border: 2px solid blue; - Picked up from the 300px query */
+    border-radius: 5px;
+  }
+}
+@media (min-width: 900px) {
+  /* color: red; - Picked up from the 300px query */*/
+  /* border-radius: 5px;- Picked up from the 600px query */ */
+  /* border: 2px solid blue; - Picked up from the 600px query */*/
+}
+
+ 
+/*   
+  INDIVIDUAL / BACK-TO-BACK
+*/
+/* Takes over from 300px-599px */
+@media (min-width: 300px) and (max-width: 599px) {
+  div {
+    color: red;
+    border: 1px solid red;
+  }
+} 
+/* Takes over from 600px-899px */
+@media (min-width: 600px) and (max-width: 899px) {
+  div {
+    color: red;
+    border-radius: 5px;
+  }
+} 
+/* Takes over from 900px */
+@media (min-width: 900px) {
+  div {
+    color: orange;
+    border-radius: 10px;
+  }
+}

@@ -1,0 +1,58 @@
+<!-- Javascript in the Browser -->
+
+
+<!-- There are multiple ways to include JS, wiht some
+subtle important distinctions.
+
+Much of the client-side web development involves
+the DOM. It is important to be aware of how browsers
+render the DOM, its structure, and how to inspect/
+manipulate it (using JS and manually for debugging).
+
+
+HOW TO ADD JS TO HTML:
+
+Video Reference: https://www.youtube.com/watch?v=Gd0RBdFRvF0
+
+Watch this video tutorial that demonstrated the various
+ways to add JS to HTML, including:
+
+  - using the <script> tag (in the head or body)
+  - Linking an external .js file (in the head or body)
+  - Inline JS (not a good practice) -->
+
+
+<!-- USING THE SCRIPT TAG:
+In your HTML document you can use the tag <script> to add JS: -->
+
+<script> 
+  alert("Welcome to my website");
+</script>
+
+<!-- Generally you should try to put your JS at the bottom of the
+body tag, so the rest the page can load before the JS executes-->
+
+
+<!-- USING AN EXTERNAL JS SCRIPT FILE STEPS:
+
+  1. Add a file called main.js
+  2. Write your JS in that file
+  3. Link your JS file at the bottom of the <body> of your HTML file:
+    <script src="fileNameHere.js"></script
+
+    * Remember:
+    - we link JS with the <script> tag
+    - we link CSS with the <link> tag
+-->
+
+
+<!-- INLINE JS (Not A Good Practice)
+
+  Directly in your HTML you can inline JS:
+-->
+
+<div id="navigation">
+  <ul>
+    <li> <a onclick="alert('Welcome to my website');" href="htmlFileNameHere.html">Contact Us</a></li>
+  </ul>
+</div>

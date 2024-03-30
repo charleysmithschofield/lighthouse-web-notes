@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keyboard Events</title>
+</head>
+<body>
+
+<textarea id="myTextarea" rows="3" cols="50"></textarea>
+
+<script>
+// JS goes here
+const textarea = document.getElementById("myTextarea");
+
+textarea.addEventListener("keydown", (event) => {
+  console.log("Keydown event:", event);
+});
+
+textarea.addEventListener("keypress", (event) => {
+  console.log("Keypress event:", event);
+});
+
+textarea.addEventListener("keyup", (event) => {
+  console.log("Keyup:", event);
+});
+</script>
+
+</body>
+</html>
+
+
+<!-- Open this HTML in your browser and type in the textarea while
+looking at the dev tools. Answer these questions:
+
+1. When your cursor is in the textarea and you press the SHIFT key,
+what events get triggered? Is keypress one of them? Why/why not?
+
+  Keydown and keyup events are triggered. Shift does not produce a
+  printable character so the keypress event doesn't fire.
+  
+  Instead, the keydown event fires to indicate that a key has been
+  pressed down, and the keyup fires when the key is released.
+
+
+
+2. What's the difference between keydown and keypress?
+
+  * keydown: 
+    - fired when a key is initially pressed down.
+    - captures all keys, incl. non-printable keys like SHIFT, CTRL,
+      arrow keys, etc.
+
+  * keypress: 
+    - fired after the keydown and before keyup, when a key
+  that produces a character value is pressed down.
+    - only triggered for keys that produce a character value like
+    numbers, lettes, punctuation, etc.
+
+
+
+3. If you hold down SHIFT and press A key, what event fires? 
+Did everything happen in the order you expected?
+
+  - keydown (SHIFT): fired first when SHIFT is pressed down
+  - NO keypress: Not fired for SHIFT b/c it is a non-character key
+
+  - keydown (A): Fired when A key is pressed down
+  - keypress (A): Fired for A key, indicating the character "A"
+
+  - keyup (A): Fired when A is released
+  - keyup (SHIFT): Fired when SHIFT is released
+
+
+
+4. How do keyboard event objects differ from each other? (For ex: how
+is the event object different when pressing the A key by itself vs.
+pressing it with the SHIFT pressed down as well?)
+
+  - Keypress occurs for A but not for SHIFT b/c keypress doesn't trigger
+  for non-character keys.
+
+
+5. With some text already in the box, press DELETE key to delete a
+character; do you expect the events to be the same or different from
+the examples above?
+
+  - keydown: Fired when the DELETE key is pressed down.
+  - keypress (NO): Typically not fired for the DELETE key.
+  - keyup: Fired when the DELETE key is released.
+
+
+6. What happens if you add 2 identical event listeners? Does JS complain
+or does it run the callback functions in both event listeners?
+
+  It runs the callback function in both event listeners.
+-->
+
+

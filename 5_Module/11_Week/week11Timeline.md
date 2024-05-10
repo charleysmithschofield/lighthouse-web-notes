@@ -9,11 +9,11 @@ TOTAL HOURS: 17.5
 ## SQL Intro (DONE)
 4 hours 40 mins
 (DONE)
-
+ 
 ## Installing PostgreSQL
 1 hour
 (THURS)
-
+  
 ## BootcampX Setup
 40 mins
 (THURS)

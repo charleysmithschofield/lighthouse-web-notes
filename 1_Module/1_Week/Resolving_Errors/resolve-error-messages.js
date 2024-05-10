@@ -12,26 +12,26 @@ why this won't happen?
 
 If you run the code above, you would get an error message similar to this:
 */
-node syntax-error.js
-/vagrant/focal/syntax-error.js:4
+node syntax - error.js
+  / vagrant / focal / syntax - error.js: 4;
 console.log(rank name);
                  ^^^^
-SyntaxError: Unexpected identifier
-    at exports.runInThisContext (vm.js:73:16)
-    at Module._compile (module.js:443:25)
-    at Object.Module._extensions..js (module.js:478:10)
-    at Module.load (module.js:355:32)
-    at Function.Module._load (module.js:310:12)
-    at Function.Module.runMain (module.js:501:10)
-    at startup (node.js:129:16)
-    at node.js:814:3
+  SyntaxError: Unexpected identifier
+    at exports.runInThisContext(vm.js: 73: 16)
+    at Module._compile(module.js: 443: 25)
+    at Object.Module._extensions..js(module.js: 478: 10)
+    at Module.load(module.js: 355: 32)
+    at Function.Module._load(module.js: 310: 12)
+    at Function.Module.runMain(module.js: 501: 10)
+    at startup(node.js: 129: 16)
+    at node.js: 814: 3
 
 
-// These messages can be frustratig to new developers, but if we learn
-// how to use them, they can help us fix our errors quickly and efficiently.
+  // These messages can be frustratig to new developers, but if we learn
+  // how to use them, they can help us fix our errors quickly and efficiently.
 
-// Let's start with the first line of the error message:
-/vagrant/focal/syntax-error.js:4
+  // Let's start with the first line of the error message:
+  / vagrant / focal / syntax - error.js: 4;
 
 
 // This tells us that the error happened in the file called /vagrant/focal/syntax-error.js
@@ -46,7 +46,7 @@ console.log(rank name);
 // Let's see if the error message can give us any clues. Look at it's next 3 lines:
 console.log(rank name);
                  ^^^^
-SyntaxError: Unexpected identifier
+  SyntaxError: Unexpected identifier;
 
 // This shows us exactly where in the code they error occured and that we are dealing with 
 // a syntax error There seems to be something wrong with name, which JS is calling an unex-
@@ -63,14 +63,14 @@ console.log(rank, name);
 
 // The last bit of our error message, which would be ignore, was the following:
 
-at exports.runInThisContext (vm.js:73:16)
-at Module._compile (module.js:443:25)
-at Object.Module._extensions..js (module.js:478:10)
-at Module.load (module.js:355:32)
-at Function.Module._load (module.js:310:12)
-at Function.Module.runMain (module.js:501:10)
-at startup (node.js:129:16)
-at node.js:814:3
+at exports.runInThisContext(vm.js: 73: 16)
+at Module._compile(module.js: 443: 25)
+at Object.Module._extensions..js(module.js: 478: 10)
+at Module.load(module.js: 355: 32)
+at Function.Module._load(module.js: 310: 12)
+at Function.Module.runMain(module.js: 501: 10)
+at startup(node.js: 129: 16)
+at node.js: 814: 3;
 
 /* 
 This bit is called a stack trace, which shows the state of our program when the error
@@ -99,23 +99,23 @@ Consider the following code:
 if (5 > 10) {
   console.log("Impossible!");
 
-console.log("Phew, logical fallacies avoided.");
+  console.log("Phew, logical fallacies avoided.");
 
-// We expect this code to print Phew, logical fallacies avoided., but when executed
-// it simply explodes:
+  // We expect this code to print Phew, logical fallacies avoided., but when executed
+  // it simply explodes:
 
-/vagrant/focal/syntax-error2.js:6
+  /vagrant/focal / syntax - error2.js: 6;
 });
  ^
-SyntaxError: Unexpected token )
-    at exports.runInThisContext (vm.js:73:16)
-    at Module._compile (module.js:443:25)
-    at Object.Module._extensions..js (module.js:478:10)
-    at Module.load (module.js:355:32)
-    at Function.Module._load (module.js:310:12)
-    at Function.Module.runMain (module.js:501:10)
-    at startup (node.js:129:16)
-    at node.js:814:3
+  SyntaxError: Unexpected token )
+    at exports.runInThisContext(vm.js: 73: 16)
+    at Module._compile(module.js: 443: 25)
+    at Object.Module._extensions..js(module.js: 478: 10)
+    at Module.load(module.js: 355: 32)
+    at Function.Module._load(module.js: 310: 12)
+    at Function.Module.runMain(module.js: 501: 10)
+    at startup(node.js: 129: 16)
+    at node.js: 814: 3;
 
 
 // This error is weird, firstly there is no line 6 in our code, we only wrote 4 lines.
@@ -144,22 +144,22 @@ var lastName = "Doe";
 console.log(firstName, lasName);
 
 // But it throws this error:
-node reference-error.js
-/vagrant/focal/reference-error.js:4
+node reference - error.js
+  / vagrant / focal / reference - error.js: 4;
 console.log(firstName, lasName);
                        ^
-ReferenceError: lasName is not defined
-    at Object.<anonymous> (/vagrant/focal/reference-error.js:4:24)
-    at Module._compile (module.js:460:26)
-    at Object.Module._extensions..js (module.js:478:10)
-    at Module.load (module.js:355:32)
-    at Function.Module._load (module.js:310:12)
-    at Function.Module.runMain (module.js:501:10)
-    at startup (node.js:129:16)
-    at node.js:814:3
+  ReferenceError: lasName is not defined
+    at Object.< anonymous > (/vagrant/focal / reference - error.js: 4: 24)
+    at Module._compile(module.js: 460: 26)
+    at Object.Module._extensions..js(module.js: 478: 10)
+    at Module.load(module.js: 355: 32)
+    at Function.Module._load(module.js: 310: 12)
+    at Function.Module.runMain(module.js: 501: 10)
+    at startup(node.js: 129: 16)
+    at node.js: 814: 3
 
-// Let's read our error message line by line again:
-/vagrant/focal/reference-error.js:4
+  // Let's read our error message line by line again:
+  / vagrant / focal / reference - error.js: 4;
 
 // This tells us our error is most likely coming from line 4, which is conf'd 
 // by the next couple lines of the error message.
@@ -173,8 +173,8 @@ var lastName = "Doe";
 console.log(firstName, lastName);
 
 // Run the code by typing this into your terminal:
-node reference-error.js
-Jane Doe
+node reference - error.js
+Jane Doe;
 
 // Great it's fixed!
 
@@ -188,23 +188,23 @@ var favouriteMeal = "BREAKFAST";
 console.log(favouriteMeal.toLower());
 
 // But we got an error message:
-node type-error.js
-/vagrant/focal/type-error.js:3
+node type - error.js
+  / vagrant / focal / type - error.js: 3;
 console.log(favouriteMeal.toLower());
                           ^
-TypeError: undefined is not a function
-    at Object.<anonymous> (/vagrant/focal/type-error.js:3:27)
-    at Module._compile (module.js:460:26)
-    at Object.Module._extensions..js (module.js:478:10)
-    at Module.load (module.js:355:32)
-    at Function.Module._load (module.js:310:12)
-    at Function.Module.runMain (module.js:501:10)
-    at startup (node.js:129:16)
-    at node.js:814:3
+  TypeError: undefined is not a function
+  at Object.< anonymous > (/vagrant/focal / type - error.js: 3: 27)
+    at Module._compile(module.js: 460: 26)
+    at Object.Module._extensions..js(module.js: 478: 10)
+    at Module.load(module.js: 355: 32)
+    at Function.Module._load(module.js: 310: 12)
+    at Function.Module.runMain(module.js: 501: 10)
+    at startup(node.js: 129: 16)
+    at node.js: 814: 3
 
 
-// Let's start at the top of the error message:
-/vagrant/focal/type-error.js:3
+  // Let's start at the top of the error message:
+  / vagrant / focal / type - error.js: 3;
 console.log(favouriteMeal.toLower());
 
 // This tells us that we broke something on line 3 and it has something 

@@ -13,8 +13,7 @@ This repository contains all of the notes taken by [Charley Smith-Schofield](htt
     * [Command Line Args](/1_Module/1_Week/Command_Line_Args/commandLineArgsNotes.js)
     * [Function Best Practices](/1_Module/1_Week/Function_Best_Practices/functionBestPractices.js)
     * [Pseudocode](/1_Module/1_Week/Pseudocode/pseudocode.js)
-    * [Resolving Errors](/1_Module/1_Week/Resolving_Errors/resolve-error-messages.js)
-    * [](/1_Module/1_Week/Resolving_Errors/average.js)
+    * [Resolving Errors](/1_Module/1_Week/Resolving_Errors/average.js)
     * [Scope in JavaScript](/1_Module/1_Week/Scope_In_Javascript/scopeInJavascript.js)
     * [Template Literals](/1_Module/1_Week/Template_Literals/templateLiterals.js)
 
